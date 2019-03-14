@@ -25,3 +25,6 @@ eggman-*.tar
 # for editor
 *.swp
 *~
+
+# for local env
+env.sh
