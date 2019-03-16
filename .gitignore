@@ -26,5 +26,8 @@ eggman-*.tar
 *.swp
 *~
 
+# for IDE
+.idea
+
 # for local env
 env.sh
