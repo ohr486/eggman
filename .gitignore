@@ -28,6 +28,7 @@ eggman-*.tar
 
 # for IDE
 .idea
+.ideavimrc
 
 # for local env
 env.sh
