@@ -13,14 +13,29 @@ defmodule Mix.Tasks.Egg.Status do
   def run(args) do
     Application.ensure_all_started(:hackney)
     {options, _argv, _errors} = OptionParser.parse(args, strict: [debug: :boolean, cfn: :string])
-    debug_flag = options |> Keyword.get(:debug)
-    options |> Keyword.get(:cfn) |> cfn_status(debug_flag)
+    cfn_list_status
   end
 
   @doc false
-  defp cfn_status(stack_name, debug_flag) do
-    IO.puts "debug=[#{debug_flag}]"
-    IO.puts "stack_name=[#{stack_name}]"
-    IO.inspect Eggman.Cfn.Core.list_stacks
+  defp cfn_list_status do
+    Mix.shell.info ""
+    Mix.shell.info "Cloudformation Stacks:"
+    Mix.shell.info "----------------------"
+    [
+      :create_complete,
+      :update_complete,
+      :update_rollback_complete,
+      :rollback_complete,
+      :delete_complete,
+    ]
+    |> Enum.each(&show_stacks(&1))
+    Mix.shell.info "----------------------"
+    Mix.shell.info ""
+  end
+
+  @doc false
+  defp show_stacks(stack_status) do
+    Eggman.Cfn.Core.list_stacks(stack_status)
+    |> Enum.each(&(Mix.shell.info("[#{stack_status}] #{&1}")))
   end
 end
