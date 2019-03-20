@@ -30,6 +30,7 @@ eggman-*.tar
 .idea
 .ideavimrc
 *.impl
+.vscode
 
 # for local env
 env.sh
