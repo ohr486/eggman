@@ -1,12 +1,12 @@
-defmodule Mix.Tasks.Egg.Status do
+defmodule Mix.Tasks.Egg.Stacks do
   use Mix.Task
 
-  @shortdoc "Prints Eggman App status"
+  @shortdoc "Prints Eggman CloudFormation Stack list"
 
   @moduledoc """
-  Prints Eggman app information.
+  Prints Eggman cloudformation stack information.
 
-  mix egg.status
+  mix egg.stacks
   """
 
   @doc false
@@ -14,11 +14,11 @@ defmodule Mix.Tasks.Egg.Status do
     Application.ensure_all_started(:hackney)
     {options, _argv, _errors} = OptionParser.parse(args, strict: [debug: :boolean, filter: :string])
     keyword = Keyword.get(options, :filter)
-    cfn_list_status(keyword)
+    cfn_list_stacks(keyword)
   end
 
   @doc false
-  defp cfn_list_status(keyword) do
+  defp cfn_list_stacks(keyword) do
     Mix.shell.info ""
     Mix.shell.info "Cloudformation Stacks:"
     Mix.shell.info "----------------------"
