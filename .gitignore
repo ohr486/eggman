@@ -34,3 +34,6 @@ eggman-*.tar
 
 # for local env
 env.sh
+
+# for mac
+.DS_Store
