@@ -28,8 +28,8 @@ eggman-*.tar
 
 # for IDE
 .idea
-.ideavimrc
 *.impl
+.ideavimrc
 .vscode
 
 # for local env
