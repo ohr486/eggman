@@ -16,4 +16,11 @@ defmodule Eggman.Lmd.Core do
     |> Map.get("Functions")
     |> Enum.map(&(Map.get(&1, "FunctionName")))
   end
+
+  @doc false
+  def list_layers(""), do: list_layers_base
+
+  @doc false
+  defp list_layers_base do
+  end
 end
