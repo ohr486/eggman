@@ -19,8 +19,14 @@ defmodule Eggman.Lmd.Core do
 
   @doc false
   def list_layers(""), do: list_layers_base
+  def list_layers(nil), do: list_layers_base
+  def list_layers(keyword) do
+    list_layers_base
+    |> Enum.filter(&String.contains?(&1, keyword))
+  end
 
   @doc false
   defp list_layers_base do
+    raise "lambda layer api not implemented"
   end
 end
