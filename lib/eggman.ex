@@ -1,18 +1,13 @@
 defmodule Eggman do
-  @moduledoc """
-  Documentation for Eggman.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    IO.puts "Eggman#start"
+    Eggman.Runtime.Sup.start_link
+  end
 
-  ## Examples
-
-      iex> Eggman.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def stop(_state) do
+    IO.puts "Eggman#stop"
+    :ok
   end
 end
