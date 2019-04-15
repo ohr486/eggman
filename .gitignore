@@ -32,8 +32,9 @@ eggman-*.tar
 .ideavimrc
 .vscode
 
-# for local env
-env.sh
-
 # for mac
 .DS_Store
+
+# for local dev
+env.sh
+run.sh
