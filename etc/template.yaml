@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >-
+  A simple sample for Eggman.
+
+Globals:
+  #https://github.com/awslabs/serverless-application-model/blob/develop/docs/globals.rst
+  Function:
+    Runtime: provided
+    MemorySize: 512
+    #Environment:
+    #  Variables:
+    #    TABLE_NAME:
+    #      Ref: Table
+
+Resources:
+  eggmanExample:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: 'Elixir.Eggman'
+      CodeUri: ../_build/dev/rel/eggman/releases/0.0.1/eggman.zip
+      Description: >-
+        A simple sample for Eggman.
+      Timeout: 10
+      #Policies:
+      #  - DynamoDBCrudPolicy:
+      #      TableName: !Ref Table
+      Events:
+        CRUD:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+
+  #Table:
+  #  Type: AWS::Serverless::SimpleTable
+
+
+Outputs:
+  ApiURL:
+    Description: "API endpoint URL for Eggman"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Dev/MyResource/"
