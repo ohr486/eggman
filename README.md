@@ -10,7 +10,7 @@ by adding `eggman` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:eggman, "~> 0.1.0"}
+    {:eggman, "~> 0.0.1"}
   ]
 end
 ```
