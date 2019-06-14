@@ -1,6 +1,6 @@
 # Eggman
 
-Serverless Framework for Elixir.
+Serverless Framework for Elixir
 
 ## Installation
 

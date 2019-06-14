@@ -41,3 +41,4 @@ packaged.yaml
 # for local dev
 env.sh
 run.sh
+setup.sh
