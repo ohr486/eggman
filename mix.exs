@@ -22,7 +22,6 @@ defmodule Eggman.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:distillery, "~> 2.0"},
       {:ex_aws, "~> 2.1"},
       {:ex_aws_cloudformation, "~> 2.0"},
       {:ex_aws_lambda, "~> 2.0"},
