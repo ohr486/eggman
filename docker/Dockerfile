@@ -3,7 +3,7 @@ FROM lambci/lambda-base:build
 RUN set -e && \
     yum -y install ncurses-devel
 
-ARG OTP_VER="21.1.1"
+ARG OTP_VER="22.0.7"
 RUN set -e && \
     OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VER}.tar.gz" && \
     OTP_DOWNLOAD_SHA256="a6588243e9659960e184083f49b15ea37890e4cd9bb8aef84ba4180db68befc3" && \
@@ -57,7 +57,7 @@ ENV LANG=en_US.UTF-8 \
 ENV MIX_REBAR3=/usr/local/bin/rebar3
 ENV MIX_REBAR=/usr/local/bin/rebar
 
-ARG ELIXIR_VER=1.7.4
+ARG ELIXIR_VER=1.9.1
 RUN set -xe && \
     ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VER}.tar.gz" && \
     ELIXIR_DOWNLOAD_SHA1=c7c87983e03a1dcf20078141a22355e88dadb26b53d3f3f98b9a9268687f9e20 && \
