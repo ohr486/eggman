@@ -6,7 +6,7 @@ RUN set -e && \
 ARG OTP_VER="22.0.7"
 RUN set -e && \
     OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VER}.tar.gz" && \
-    OTP_DOWNLOAD_SHA256="a6588243e9659960e184083f49b15ea37890e4cd9bb8aef84ba4180db68befc3" && \
+    OTP_DOWNLOAD_SHA256="04c090b55ec4a01778e7e1a5b7fdf54012548ca72737965b7aa8c4d7878c92bc" && \
     curl -fSL -o otp-src.tar.gz "$OTP_DOWNLOAD_URL" && \
     echo "$OTP_DOWNLOAD_SHA256  otp-src.tar.gz" | sha256sum -c - && \
     export ERL_TOP="/usr/src/otp_src_${OTP_VERN%%@*}" && \
@@ -36,10 +36,10 @@ RUN set -xe && \
     install -v ./rebar /usr/local/bin/ && \
     rm -rf /usr/src/rebar-src
 
-ARG REBAR3_VER="3.6.2"
+ARG REBAR3_VER="3.12.0"
 RUN set -xe && \
     REBAR3_DOWNLOAD_URL="https://github.com/erlang/rebar3/archive/${REBAR3_VER}.tar.gz" && \
-    REBAR3_DOWNLOAD_SHA256="7f358170025b54301bce9a10ec7ad07d4e88a80eaa7b977b73b32b45ea0b626e" && \
+    REBAR3_DOWNLOAD_SHA256="8ac45498f03e293bc6342ec431888f9a81a4fb9e1177a69965238d127c00a79e" && \
     mkdir -p /usr/src/rebar3-src && \
     curl -fSL -o rebar3-src.tar.gz "$REBAR3_DOWNLOAD_URL" && \
     echo "$REBAR3_DOWNLOAD_SHA256 rebar3-src.tar.gz" | sha256sum -c - && \
@@ -60,7 +60,7 @@ ENV MIX_REBAR=/usr/local/bin/rebar
 ARG ELIXIR_VER=1.9.1
 RUN set -xe && \
     ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VER}.tar.gz" && \
-    ELIXIR_DOWNLOAD_SHA1=c7c87983e03a1dcf20078141a22355e88dadb26b53d3f3f98b9a9268687f9e20 && \
+    ELIXIR_DOWNLOAD_SHA1="94daa716abbd4493405fb2032514195077ac7bc73dc2999922f13c7d8ea58777" && \
     curl -fsSL $ELIXIR_DOWNLOAD_URL -o elixir-src.tar.gz && \
     echo "$ELIXIR_DOWNLOAD_SHA1 elixir-src.tar.gz" | sha256sum -c - && \
     mkdir -p /usr/src/elixir-src && \
