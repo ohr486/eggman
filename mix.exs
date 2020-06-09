@@ -4,7 +4,7 @@ defmodule Eggman.MixProject do
   def project do
     [
       app: :eggman,
-      version: "0.0.1",
+      version: "0.0.1.dev",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps()
